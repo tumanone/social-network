@@ -1,0 +1,39 @@
+table {
+  margin: 4rem auto;
+  width: 80%;
+}
+
+.mat-elevation-z8 {
+  margin: 4rem auto;
+  width: 80%;
+  border-radius: 5px;
+}
+
+.link {
+  width: max-content;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn {
+  margin: -2rem auto 5rem;
+  display: block;
+  &-white {
+    color: #bbb;
+  }
+  &-black {
+    color: #000;
+  }
+}
+
+.btn-menu {
+
+  &_white-text {
+    color: #fff;
+  }
+
+  &_black-text {
+    color: #000;
+  }
+}
+

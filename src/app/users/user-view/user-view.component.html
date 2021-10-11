@@ -1,0 +1,18 @@
+<div *ngIf="this.user; else noUser">
+  <mat-card class="user-card">
+    <mat-card-title>{{this.user.first_name}} {{this.user.last_name}}</mat-card-title>
+    <mat-card-content>
+      <ul>
+        <li>User's ID: {{this.user.id}}</li>
+        <li>Role: <span>{{this.user.role === userRole.ADMIN ? 'Admin' : 'User'}}</span></li>
+        <li>Email: {{this.user.email}}</li>
+        <li>Info: {{this.user.info}}</li>
+        <li>Age: {{this.user.age}}</li>
+        <li>Education: {{!this.user.education ?  '-' : (this.user.education | educationShow)}}</li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+</div>
+<ng-template #noUser>
+  <p>Cannot find any users</p>
+</ng-template>

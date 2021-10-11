@@ -1,0 +1,37 @@
+<form class="loginForm" [formGroup]="loginForm" (ngSubmit)="submit()">
+
+  <mat-form-field
+    class="w-100"
+    appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" formControlName="email">
+    <div
+      *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched"
+      class="validation">
+      <small *ngIf="loginForm.controls.email.hasError('required')">
+        Email field cannot be empty
+      </small>
+      <small *ngIf="loginForm.controls.email.hasError('email')">
+        Please, enter valid email address
+      </small>
+    </div>
+  </mat-form-field>
+
+
+  <mat-form-field
+    class="w-100"
+    appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password">
+  </mat-form-field>
+
+  <button
+    [disabled]="loginForm.invalid"
+    mat-button
+    color="primary"
+    type="submit"
+    aria-label="login"
+  >Log In
+  </button>
+
+</form>

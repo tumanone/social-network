@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 40%;
+  flex-direction: column;
+  align-items: center;
+  margin: 4rem auto;
+  padding: 2rem;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-90 {
+  width: 90%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-45 {
+  width: 45%;
+}
+
+.card {
+  position: relative;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  width: 90%;
+}
+
+.date-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0;
+}
+
+small {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  display: inline;
+  color: red;
+}
+
+.btn-absolute {
+  position: absolute;
+  top: .8rem;
+  right: .8rem;
+}
+
+.btn-add-education {
+  margin: 2rem auto;
+}
+
+
+
+

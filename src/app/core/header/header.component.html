@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+
+  <h1><a [routerLink]="['']" >Social</a></h1>
+
+  <span class="example-spacer"></span>
+
+  <button mat-button>
+    Messages
+  </button>
+
+  <button mat-button type="button" [routerLink]="['users']">
+    Users
+  </button>
+
+  <button
+    *ngIf="!currentUser; else loggedUser"
+    mat-button class="example-icon"
+    [routerLink]="['/auth']">
+    Log In
+  </button>
+
+  <ng-template #loggedUser>
+    <button mat-button [matMenuTriggerFor]="menu">{{currentUser?.first_name + ' ' + (currentUser?.last_name | shortName)}}</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="[currentUser?.id, 'view']">Profile</button>
+      <button mat-menu-item (click)="userLogout()">Log Out</button>
+    </mat-menu>
+  </ng-template>
+
+</mat-toolbar>
+
+

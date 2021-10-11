@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Johnny",
+      "last_name": "Depp",
+      "age": 58,
+      "role": "admin",
+      "email": "johnnydepp@gmail.com",
+      "info": "The world-famous actor",
+      "education": [
+        {
+          "university": "Cambridge University",
+          "entry_year": "1983",
+          "graduation_year": "1987",
+          "specialization": "Management"
+        },
+        {
+          "university": "Oxford University",
+          "entry_year": "1987",
+          "graduation_year": "1991",
+          "specialization": "Law"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "first_name": "Jack",
+      "last_name": "Sparrow",
+      "age": 60,
+      "email": "jacksparrow@gmail.com",
+      "role": "user",
+      "info": "Pirate of the Caribbean",
+      "education": []
+    },
+    {
+      "id": 881,
+      "first_name": "Brad",
+      "last_name": "Pitt",
+      "age": "57",
+      "email": "bradpitt@gmail.com",
+      "role": "admin",
+      "info": "The world-famous actor",
+      "education": [
+        {
+          "university": "University of Missouri",
+          "entry_year": 1984,
+          "graduation_year": 1986,
+          "specialization": "Journalism"
+        }
+      ]
+    }
+  ]
+}

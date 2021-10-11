@@ -1,0 +1,144 @@
+<form class="container" [formGroup]="userForm" (ngSubmit)="submit()">
+
+  <h2>{{ mode === formModes.CREATE ? 'Create new user' : 'Edit user' }}</h2>
+
+  <mat-form-field
+    class="w-100"
+    appearance="outline">
+    <mat-label>First Name</mat-label>
+    <input matInput formControlName="first_name">
+    <div
+      *ngIf="userForm.controls.first_name.hasError('required')"
+      class="validation">
+      <small *ngIf="userForm.controls.first_name.hasError('required') && userForm.controls.first_name.touched">
+        First Name field cannot be empty
+      </small>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field
+    class="w-100"
+    appearance="outline">
+    <mat-label>Last Name</mat-label>
+    <input matInput formControlName="last_name">
+    <div
+      *ngIf="userForm.controls.last_name.hasError('required') && userForm.controls.last_name.touched"
+      class="validation">
+      <small *ngIf="userForm.controls.last_name.hasError('required') && userForm.controls.last_name.touched">
+        Last Name field cannot be empty
+      </small>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field
+    class="w-100"
+    appearance="outline">
+    <mat-label>Age</mat-label>
+    <input matInput formControlName="age">
+    <div
+      *ngIf="userForm.controls.age.hasError('required')"
+      class="validation">
+      <small *ngIf="userForm.controls.age.hasError('required') && userForm.controls.age.touched">
+        Age field cannot be empty
+      </small>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field
+    class="w-100"
+    appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email">
+    <div
+      *ngIf="userForm.controls.email.invalid && userForm.controls.email.touched"
+    >
+      <small *ngIf="userForm.controls.email.hasError('required')">
+        Email field cannot be empty
+      </small>
+      <small *ngIf="userForm.controls.email.hasError('email')">
+        Please, enter valid email address
+      </small>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field
+    class="w-100"
+    appearance="outline">
+    <mat-label>Info</mat-label>
+    <textarea
+      matInput
+      formControlName="info"
+    ></textarea>
+  </mat-form-field>
+
+  <h3>Access selection:</h3>
+
+  <mat-button-toggle-group [formControl]="role" class="w-100">
+    <mat-button-toggle class="w-50" value="user">User</mat-button-toggle>
+    <mat-button-toggle class="w-50" value="admin">Admin</mat-button-toggle>
+  </mat-button-toggle-group>
+
+
+  <div class="card w-100"
+       formArrayName="education"
+       *ngFor="let education of education.controls; let i = index;"
+  >
+    <h3>Education</h3>
+
+    <div class="row" [formGroup]="education | mapFormGroup">
+
+      <mat-form-field class="w-100">
+        <mat-label>University</mat-label>
+        <input matInput formControlName="university">
+      </mat-form-field>
+
+      <div class="date-container w-100">
+
+        <mat-form-field class="w-45" appearance="fill">
+          <mat-label>Entry year</mat-label>
+          <input matInput type="number" formControlName="entry_year">
+        </mat-form-field>
+
+        <mat-form-field class="w-45" appearance="fill">
+          <mat-label>Graduation year</mat-label>
+          <input matInput type="number" formControlName="graduation_year">
+        </mat-form-field>
+        <small
+          *ngIf="(education | mapFormGroup).controls.graduation_year.hasError('error') && ((education | mapFormGroup).controls.graduation_year.dirty || (education | mapFormGroup).controls.graduation_year.touched)"
+          class="text-sm text-red-600">
+          Graduation date is less than entry date!
+        </small>
+
+      </div>
+
+      <mat-form-field class="w-100">
+        <mat-label>Specialization</mat-label>
+        <input matInput formControlName="specialization">
+      </mat-form-field>
+    </div>
+
+    <button
+      class="btn-absolute"
+      type="button"
+      mat-icon-button
+      aria-label="Remove"
+      (click)="removeEducation(i)">
+      <mat-icon>highlight_off</mat-icon>
+    </button>
+  </div>
+
+  <button
+    class="btn-add-education"
+    mat-button
+    color="primary"
+    type="button"
+    aria-label="Add"
+    (click)="addEducation()"
+  >Add education
+  </button>
+
+  <button [disabled]="userForm.invalid" mat-raised-button class="btn-add-user" color="primary" type="submit">
+    {{ mode === formModes.CREATE ? 'Add new user' : 'Save user' }}
+  </button>
+
+</form>
